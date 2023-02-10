@@ -1,14 +1,14 @@
-import http from 'http';
+import express from 'express';
 
 const host = '127.0.0.1';
 const port = '3000';
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello from server');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello from server');
 });
 
-server.listen(port, host, () => {
-    console.log(`Сервер запущен на http://localhost:3000`);
+app.listen(port, () => {
+    console.log(`http://${host}:${port}`);
 });
