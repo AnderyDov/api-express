@@ -2,11 +2,13 @@
     "name": "api-express",
     "version": "1.0.0",
     "description": "node js server on express with api",
-    "main": "server.js",
+    "main": "index.js",
     "scripts": {
+        "start": "node ./dist/index.js",
+        "build": "tsc",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "type": "module",
+    "type": "commonjs",
     "keywords": [
         "nodejs",
         "javascript",
@@ -16,7 +18,10 @@
     "author": "Andrey Dovban",
     "license": "ISC",
     "dependencies": {
-        "axios": "^1.3.2",
-        "express": "^4.18.2"
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.13",
+        "typescript": "^4.4.4"
     }
 }
