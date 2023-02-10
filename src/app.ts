@@ -12,11 +12,18 @@ export class App {
         this.port = 8000;
     }
 
+    homePage() {
+        this.app.get('/', (req, res) => {
+            res.send('HOME PAGE');
+        });
+    }
+
     useRouts() {
         this.app.use('/users', usersRouter);
     }
 
     public async init() {
+        this.homePage();
         this.useRouts();
         this.server = this.app.listen(this.port);
         console.log(`http://localhost:${this.port}`);
