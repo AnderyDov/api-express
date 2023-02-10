@@ -1,4 +1,5 @@
 import express from 'express';
+import usersRouter from './users/users.js';
 
 const host = '127.0.0.1';
 const port = '3000';
@@ -6,14 +7,14 @@ const port = '3000';
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('Hello from server');
-})
-    .get('/one', (req, res) => {
-        res.send('one');
-    })
-    .get('/two', (req, res) => {
-        res.send('two');
-    });
+    res.send('Home page');
+});
+
+app.get('/hello', (req, res) => {
+    res.send('hello');
+});
+
+app.use('/users', usersRouter);
 
 app.listen(port, () => {
     console.log(`http://${host}:${port}`);
