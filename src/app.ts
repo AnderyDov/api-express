@@ -1,15 +1,18 @@
 import express, { Express } from 'express';
 import usersRouter from './users/users';
 import { Server } from 'node:http';
+import { Loggerservice } from './logger/logger.service';
 
 export class App {
     app: Express;
     server: Server;
     port: number;
+    logger: Loggerservice;
 
-    constructor() {
+    constructor(logger: Loggerservice) {
         this.app = express();
         this.port = 8000;
+        this.logger = logger;
     }
 
     homePage() {
@@ -26,6 +29,6 @@ export class App {
         this.homePage();
         this.useRouts();
         this.server = this.app.listen(this.port);
-        console.log(`http://localhost:${this.port}`);
+        this.logger.log(`Сервер запущен на http://localhost:${this.port}`);
     }
 }
