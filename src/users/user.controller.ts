@@ -6,8 +6,8 @@ export class UserController extends BaseController {
     constructor(logger: Loggerservice) {
         super(logger);
         this.bindRouter([
-            { path: '/register', method: 'get', func: this.register },
-            { path: '/login', method: 'get', func: this.login },
+            { path: '/register', method: 'post', func: this.register },
+            { path: '/login', method: 'post', func: this.login },
         ]);
     }
 
